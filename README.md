@@ -1,0 +1,2 @@
+# automata
+Automation related code
