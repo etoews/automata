@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  jenkins:
+    image: etoews/jenkins:0.1
+    ports:
+      - 8080:8080
+    volumes:
+      - jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    secrets:
+      - jenkins-username
+      - jenkins-password
+
+secrets:
+  jenkins-username:
+    external: true
+  jenkins-password:
+    external: true
+
+volumes:
+  jenkins:
