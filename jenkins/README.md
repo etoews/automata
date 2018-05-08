@@ -49,8 +49,9 @@ curl -s -k "http://admin:$JENKINS_PASSWORD@localhost:8080/pluginManager/api/json
 ## Build
 
 ```bash
-docker image build -t etoews/jenkins:0.1 .
-docker image push etoews/jenkins:0.1
+export JENKINS_VERSION=<jenkins-version-at-time-of-build>.<my-version-number>
+docker image build -t etoews/jenkins:${JENKINS_VERSION} .
+docker image push etoews/jenkins:${JENKINS_VERSION}
 
 docker service update --force jenkins_jenkins
 ```
